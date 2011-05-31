@@ -14,7 +14,7 @@ var keygmusicListener = {
   // Init keygmusicListener object
   init: function(){
 
-    if (window.location.href.search(/^https\:\/\/music\.google\.com\/music\/listen/) != -1){
+    if (window.location.href.search(/^https?\:\/\/music\.google\.com\/music\/listen/) != -1){
 
       chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
         var allToggles = {
