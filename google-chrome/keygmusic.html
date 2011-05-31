@@ -81,13 +81,13 @@
 
               }else{
 
-                keygmusic.log("Searching for Amazon Cloud Player ...");
+                keygmusic.log("Searching for Google Music Player ...");
 
                 chrome.windows.getCurrent(function(currentWindow){
                   chrome.tabs.getAllInWindow(currentWindow.id, function(tabs){
                     for (var i=0; i<tabs.length; i++){
 
-                      if (tabs[i].url.search(/^https\:\/\/www\.amazon\.com\/gp\/dmusic\/mp3\/player/) != -1){
+                      if (tabs[i].url.search(/^http\:\/\/music\.google\.com\/music\/listen/) != -1){
                         keygmusic.acpTabID = tabs[i].id;
                         keygmusic.log("The groove is found!");
 
@@ -111,10 +111,10 @@
           sendResponse({});
         });
 
-        // When tab is removed, check if it wasn't Amazon Cloud Player tab
+        // When tab is removed, check if it wasn't Google Music Player tab
         chrome.tabs.onRemoved.addListener(function(tabID){
           if (tabID == keygmusic.acpTabID){
-            keygmusic.log("Amazon Cloud Player tab removed!");
+            keygmusic.log("Google Music Player tab removed!");
             keygmusic.acpTabID = null;
           }
         });
@@ -128,7 +128,7 @@
         }
       },
 
-      // Send toggle to Amazon Cloud Player tab
+      // Send toggle to Google Music Player tab
       toggle: function(request){
         if (request){
           chrome.tabs.sendRequest(keygmusic.acpTabID, {method : "CloudPlayer", action: request}, function(response){
