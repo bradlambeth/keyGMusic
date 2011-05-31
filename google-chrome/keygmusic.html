@@ -131,7 +131,7 @@
       // Send toggle to Google Music Player tab
       toggle: function(request){
         if (request){
-          chrome.tabs.sendRequest(keygmusic.acpTabID, {method : "sendCommand", action: request}, function(response){
+          chrome.tabs.sendRequest(keygmusic.acpTabID, {method : "CloudPlayer", action: request}, function(response){
             if (response.result == 200){
               keygmusic.log("Toggled '" + request + "' !");
             }else{
