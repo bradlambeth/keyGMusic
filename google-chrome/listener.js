@@ -16,7 +16,7 @@ var keygmusicListener = {
         }
         callback(null);
       });
-  }
+  },
 
   // Function adapted from http://code.google.com/p/music-beta-controller/
   // Send the given command to a tab showing Music Beta,
@@ -39,7 +39,7 @@ var keygmusicListener = {
                               selected: true});
         }
       });
-  }
+  },
 
   // Init keygmusicListener object
   init: function(){
