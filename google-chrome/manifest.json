@@ -4,10 +4,13 @@
   "description": "Add missing keyboard functionality to Google Music Player!",
   "background_page": "keygmusic.html",
   "options_page": "options.html",
-  "permissions": ["tabs"],
+  "permissions": [
+    "tabs",
+    "*://music.google.com/*"
+  ],
   "content_scripts": [
     {
-      "matches" : ["http://*/*", "https://*/*", "ftp://*/*"],
+      "matches" : ["*://music.google.com/*"],
       "js" : ["listener.js"],
       "run_at" : "document_end"
     }

@@ -83,24 +83,22 @@
 
                 keygmusic.log("Searching for Google Music Player ...");
 
-                chrome.windows.getCurrent(function(currentWindow){
-                  chrome.tabs.getAllInWindow(currentWindow.id, function(tabs){
-                    for (var i=0; i<tabs.length; i++){
-
-                      if (tabs[i].url.search(/^http\:\/\/music\.google\.com\/music\/listen/) != -1){
-                        keygmusic.acpTabID = tabs[i].id;
+                chrome.windows.getAll({populate: true}, function(windows) {
+                  var pattern = 'https?\:\/\/music\.google\.com\/music\/listen.*';
+                  for (var window = 0; window < windows.length; window++) {
+                    for (var i = 0; i < windows[window].tabs.length; i++) {
+                      if (windows[window].tabs[i].url.match(pattern)) {
+                        keygmusic.acpTabID = windows[window].tabs[i].id;
                         keygmusic.log("The groove is found!");
-
                         keygmusic.toggle(action);
                         break;
                       }
                     }
+                  }
 
-                    if (keygmusic.acpTabID == null){
-                      keygmusic.log("Where is groove?!");
-                    }
-                  });
-                });
+		if (keygmusic.acpTabID == null){
+                  keygmusic.log("Where is groove?!");
+                };
 
               }
 
