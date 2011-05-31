@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>keyMazony Options</title>
+    <title>keyGMusic Options</title>
 
     <style>
       body {
@@ -78,7 +78,7 @@
     </style>
 
     <script>
-      keymazonyOptions = {
+      keygmusicOptions = {
         init: function(){
 
           this.debug = false;
@@ -101,7 +101,7 @@
         // Debugging is half of victory!
         log: function(msg){
           if (this.debug && msg){
-            console.log("keymazony ---> " + msg);
+            console.log("keygmusic ---> " + msg);
           }
         },
 
@@ -160,7 +160,7 @@
             if (!this.checkJSON(combo))
               return;
 
-            combo["enabled"] = document.getElementById("keymazony-enabler-" + id).checked === true ? true : false;
+            combo["enabled"] = document.getElementById("keygmusic-enabler-" + id).checked === true ? true : false;
 
             this.uiChangeCombos(id, combo);
             this.setPref(id, combo);
@@ -302,8 +302,8 @@
               document.getElementById(id_arr[i]).value = str;
             }
 
-            if (document.getElementById("keymazony-enabler-" + id_arr[i]) && json_arr[i]["enabled"]){
-              document.getElementById("keymazony-enabler-" + id_arr[i]).setAttribute("checked", json_arr[i]["enabled"]);
+            if (document.getElementById("keygmusic-enabler-" + id_arr[i]) && json_arr[i]["enabled"]){
+              document.getElementById("keygmusic-enabler-" + id_arr[i]).setAttribute("checked", json_arr[i]["enabled"]);
             }
 
           }
@@ -350,15 +350,15 @@
 
         toggleEnabled: function(event, id){
           if (this.defaults[id]){
-            var json = keymazonyOptions.getPref(id);
+            var json = keygmusicOptions.getPref(id);
 
             json["enabled"] = event.checked === true ? true : false;
-            keymazonyOptions.setPref(id, json);
+            keygmusicOptions.setPref(id, json);
           }
         }
       };
 
-      window.addEventListener("load", function(e) { keymazonyOptions.init(e); }, false);
+      window.addEventListener("load", function(e) { keygmusicOptions.init(e); }, false);
     </script>
   </head>
 
@@ -366,45 +366,45 @@
     <div id="wrap">
       <div class="clear heading">Playback control</div>
 
-      <input id="keymazony-enabler-play" class="check" type="checkbox" onclick="keymazonyOptions.toggleEnabled(this, 'play')" />
+      <input id="keygmusic-enabler-play" class="check" type="checkbox" onclick="keygmusicOptions.toggleEnabled(this, 'play')" />
       <span class="label">Play/Pause</span>
       <input id="play" class="combos-input" type="text" value="-" readonly="true"
-      onkeydown="keymazonyOptions.applyCombo(event, 'play')" />
+      onkeydown="keygmusicOptions.applyCombo(event, 'play')" />
 
       <div class="clear"></div>
 
-      <input id="keymazony-enabler-stop" class="check" type="checkbox" onclick="keymazonyOptions.toggleEnabled(this, 'stop')" />
+      <input id="keygmusic-enabler-stop" class="check" type="checkbox" onclick="keygmusicOptions.toggleEnabled(this, 'stop')" />
       <span class="label">Stop</span>
       <input id="stop" class="combos-input" type="text" value="-" readonly="true"
-      onkeydown="keymazonyOptions.applyCombo(event, 'stop')" />
+      onkeydown="keygmusicOptions.applyCombo(event, 'stop')" />
 
       <div class="clear"></div>
 
-      <input id="keymazony-enabler-prev" class="check" type="checkbox" onclick="keymazonyOptions.toggleEnabled(this, 'prev')" />
+      <input id="keygmusic-enabler-prev" class="check" type="checkbox" onclick="keygmusicOptions.toggleEnabled(this, 'prev')" />
       <span class="label">Previous song</span>
       <input id="prev" class="combos-input" type="text" value="-" readonly="true"
-      onkeydown="keymazonyOptions.applyCombo(event, 'prev')" />
+      onkeydown="keygmusicOptions.applyCombo(event, 'prev')" />
 
       <div class="clear"></div>
 
-      <input id="keymazony-enabler-next" class="check" type="checkbox" onclick="keymazonyOptions.toggleEnabled(this, 'next')" />
+      <input id="keygmusic-enabler-next" class="check" type="checkbox" onclick="keygmusicOptions.toggleEnabled(this, 'next')" />
       <span class="label">Next song</span>
       <input id="next" class="combos-input" type="text" value="-"readonly="true"
-      onkeydown="keymazonyOptions.applyCombo(event, 'next')" />
+      onkeydown="keygmusicOptions.applyCombo(event, 'next')" />
 
       <div class="clear heading">Sound control</div>
 
-      <input id="keymazony-enabler-volup" class="check" type="checkbox" onclick="keymazonyOptions.toggleEnabled(this, 'volup')" />
+      <input id="keygmusic-enabler-volup" class="check" type="checkbox" onclick="keygmusicOptions.toggleEnabled(this, 'volup')" />
       <span class="label">Volume Up</span>
       <input id="volup" class="combos-input" type="text" value="-"readonly="true"
-      onkeydown="keymazonyOptions.applyCombo(event, 'volup')" />
+      onkeydown="keygmusicOptions.applyCombo(event, 'volup')" />
 
       <div class="clear"></div>
 
-      <input id="keymazony-enabler-voldown" class="check" type="checkbox" onclick="keymazonyOptions.toggleEnabled(this, 'voldown')" />
+      <input id="keygmusic-enabler-voldown" class="check" type="checkbox" onclick="keygmusicOptions.toggleEnabled(this, 'voldown')" />
       <span class="label">Volume Down</span>
       <input id="voldown" class="combos-input" type="text" value="-"readonly="true"
-      onkeydown="keymazonyOptions.applyCombo(event, 'voldown')" />
+      onkeydown="keygmusicOptions.applyCombo(event, 'voldown')" />
 
       <div class="clear"></div>
 

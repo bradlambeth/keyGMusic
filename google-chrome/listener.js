@@ -1,4 +1,4 @@
-var keymazonyListener = {
+var keygmusicListener = {
 
   CloudPlayer: function(toggle)
   {
@@ -11,20 +11,20 @@ var keymazonyListener = {
     document.head.removeChild(append);
   },
 
-  // Init keymazonyListener object
+  // Init keygmusicListener object
   init: function(){
 
     if (window.location.href.search(/^https\:\/\/www\.amazon\.com\/gp\/dmusic\/mp3\/player/) != -1){
 
       chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
         var allToggles = {
-          "play"      : function(){ keymazonyListener.CloudPlayer("window.amznMusic.widgets.player.masterPlay();"); },
-          "stop"      : function(){ keymazonyListener.CloudPlayer("window.amznMusic.widgets.player.pause();"); },
-          "prev"      : function(){ keymazonyListener.CloudPlayer("window.amznMusic.widgets.player.playHash('previous', null, null);"); },
-          "next"      : function(){ keymazonyListener.CloudPlayer("window.amznMusic.widgets.player.playHash('next', null, null);"); },
+          "play"      : function(){ keygmusicListener.CloudPlayer("window.amznMusic.widgets.player.masterPlay();"); },
+          "stop"      : function(){ keygmusicListener.CloudPlayer("window.amznMusic.widgets.player.pause();"); },
+          "prev"      : function(){ keygmusicListener.CloudPlayer("window.amznMusic.widgets.player.playHash('previous', null, null);"); },
+          "next"      : function(){ keygmusicListener.CloudPlayer("window.amznMusic.widgets.player.playHash('next', null, null);"); },
 
-          "volup"     : function(){ keymazonyListener.CloudPlayer("var volCont=window.jQuery('.volumeContainer');var volNow=volCont.slider('option','value');if(volNow<=90){window.amznMusic.playerInterface.setVolume((volNow/100)+0.1);volCont.slider('option','value',volNow+10)}else{window.amznMusic.playerInterface.setVolume(1);volCont.slider('option','value',100)}") },
-          "voldown"   : function(){ keymazonyListener.CloudPlayer("var volCont=window.jQuery('.volumeContainer');var volNow=volCont.slider('option','value');if(volNow>=10){window.amznMusic.playerInterface.setVolume((volNow/100)-0.1);volCont.slider('option','value',volNow-10)}else{window.amznMusic.playerInterface.setVolume(0);volCont.slider('option','value',0)}"); },
+          "volup"     : function(){ keygmusicListener.CloudPlayer("var volCont=window.jQuery('.volumeContainer');var volNow=volCont.slider('option','value');if(volNow<=90){window.amznMusic.playerInterface.setVolume((volNow/100)+0.1);volCont.slider('option','value',volNow+10)}else{window.amznMusic.playerInterface.setVolume(1);volCont.slider('option','value',100)}") },
+          "voldown"   : function(){ keygmusicListener.CloudPlayer("var volCont=window.jQuery('.volumeContainer');var volNow=volCont.slider('option','value');if(volNow>=10){window.amznMusic.playerInterface.setVolume((volNow/100)-0.1);volCont.slider('option','value',volNow-10)}else{window.amznMusic.playerInterface.setVolume(0);volCont.slider('option','value',0)}"); },
         };
 
         if (request.method == "CloudPlayer" && allToggles[request.action] != undefined){
@@ -43,7 +43,7 @@ var keymazonyListener = {
 
     this.unAllowedKeys = [16, 17, 18, 91];
 
-    // Inject in tab keyup listener, who will check for (maybe) valid keymazony combo
+    // Inject in tab keyup listener, who will check for (maybe) valid keygmusic combo
     window.addEventListener('keyup', function(event){
 
       var modifiers = new Array();
@@ -61,7 +61,7 @@ var keymazonyListener = {
         keycode = event.keyCode;
       }
 
-      if(modifiers.length > 0 && !keymazonyListener.inArray(keymazonyListener.unAllowedKeys, keycode)) {
+      if(modifiers.length > 0 && !keygmusicListener.inArray(keygmusicListener.unAllowedKeys, keycode)) {
 
         var request = {
           "method" : "keyup",
@@ -91,7 +91,7 @@ var keymazonyListener = {
 
 try{
 
-  keymazonyListener.init();
+  keygmusicListener.init();
 
 }catch(e){
   // Fail, but with dignity!

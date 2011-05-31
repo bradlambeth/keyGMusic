@@ -1,8 +1,8 @@
 {
-  "name": "keyMazony",
+  "name": "keyGMusic",
   "version": "0.2",
-  "description": "Add missing keyboard functionality to Amazon Cloud Player!",
-  "background_page": "keymazony.html",
+  "description": "Add missing keyboard functionality to Google Music Player!",
+  "background_page": "keygmusic.html",
   "options_page": "options.html",
   "permissions": ["tabs"],
   "content_scripts": [
@@ -13,7 +13,7 @@
     }
   ],
   "icons" : {
-    "48"  : "keymazony-48.png",
-    "128" : "keymazony-128.png"
+    "48"  : "keygmusic-48.png",
+    "128" : "keygmusic-128.png"
   }
 }
