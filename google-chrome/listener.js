@@ -19,7 +19,7 @@ var keygmusicListener = {
       chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
         var allToggles = {
           "play"      : function(){ keygmusicListener.CloudPlayer("SJBpost('playPause'); void 0") },
-          "stop"      : function(){ keygmusicListener.CloudPlayer("SJBpost(     'stop'); void 0") },
+//          "stop"      : function(){ keygmusicListener.CloudPlayer("SJBpost(     'stop'); void 0") },
           "prev"      : function(){ keygmusicListener.CloudPlayer("SJBpost( 'prevSong'); void 0") },
           "next"      : function(){ keygmusicListener.CloudPlayer("SJBpost( 'nextSong'); void 0") },
 

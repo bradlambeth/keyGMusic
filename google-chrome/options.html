@@ -85,12 +85,12 @@
           this.unAllowedKeys = [16, 17, 18, 91];
           this.defaults = {
             "play"      : '{"modifiers":["control","alt","shift"],"keycode":111,"enabled":true}',
-            "stop"      : '{"modifiers":["control","alt","shift"],"keycode":88,"enabled":true}',
+//            "stop"      : '{"modifiers":["control","alt","shift"],"keycode":88,"enabled":true}',
             "prev"      : '{"modifiers":["control","alt","shift"],"keycode":37,"enabled":true}',
             "next"      : '{"modifiers":["control","alt","shift"],"keycode":39,"enabled":true}',
 
-            "volup"     : '{"modifiers":["control","shift"],"keycode":190,"enabled":true}',
-            "voldown"   : '{"modifiers":["control","shift"],"keycode":188,"enabled":true}'
+//            "volup"     : '{"modifiers":["control","shift"],"keycode":190,"enabled":true}',
+//            "voldown"   : '{"modifiers":["control","shift"],"keycode":188,"enabled":true}'
           };
 
           this.uiOptions();
@@ -372,14 +372,14 @@
       onkeydown="keygmusicOptions.applyCombo(event, 'play')" />
 
       <div class="clear"></div>
-
+<!--
       <input id="keygmusic-enabler-stop" class="check" type="checkbox" onclick="keygmusicOptions.toggleEnabled(this, 'stop')" />
       <span class="label">Stop</span>
       <input id="stop" class="combos-input" type="text" value="-" readonly="true"
       onkeydown="keygmusicOptions.applyCombo(event, 'stop')" />
 
       <div class="clear"></div>
-
+-->
       <input id="keygmusic-enabler-prev" class="check" type="checkbox" onclick="keygmusicOptions.toggleEnabled(this, 'prev')" />
       <span class="label">Previous song</span>
       <input id="prev" class="combos-input" type="text" value="-" readonly="true"
@@ -392,7 +392,7 @@
       <input id="next" class="combos-input" type="text" value="-"readonly="true"
       onkeydown="keygmusicOptions.applyCombo(event, 'next')" />
 
-      <div class="clear heading">Sound control</div>
+<!--      <div class="clear heading">Sound control</div>
 
       <input id="keygmusic-enabler-volup" class="check" type="checkbox" onclick="keygmusicOptions.toggleEnabled(this, 'volup')" />
       <span class="label">Volume Up</span>
@@ -405,7 +405,7 @@
       <span class="label">Volume Down</span>
       <input id="voldown" class="combos-input" type="text" value="-"readonly="true"
       onkeydown="keygmusicOptions.applyCombo(event, 'voldown')" />
-
+-->
       <div class="clear"></div>
 
       <a id="readme" target="_blank" href="http://www.google.com/support/chrome/bin/answer.py?hl=en&answer=95743">With great power comes great responsibility. Read before do.</a>
